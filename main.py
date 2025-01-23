@@ -32,6 +32,12 @@ def calculator():
                     print("Terjadi kesalahan: Pembagian dengan nol tidak diperbolehkan!")
         else:
             print("Pilihan operasi tidak valid!")
+            choice = int(input("Apakah anda ingin mencoba lagi?\n1. Coba lagi\n2. Keluar\n "))
+
+            if choice != 2:
+                calculator()
+            else:
+                print("Selamat Tinggal")    
 
     except ValueError:
         print("Anda memasukkan angka yg salah")
