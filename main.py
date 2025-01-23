@@ -1,15 +1,12 @@
 
-def penjumlahan(n1, n2):
-    result = n1 + n2
-    print(f"Hasil {n1} + {n2} = {result}")
+def penjumlahan(nList):
+    result = sum(nList)
+    print(f"Hasil + {" + ".join(map(str, nList))} = {result}")
 
-    return result
 
-def pengurangan(n1, n2):
+def pengurangan(nList):
     result = n1 - n2
-    print(f"Hasil {n1} - {n2} = {result}")
-
-    return result
+    print(f"Hasil + {" - ".join(map(str, nList))} = {result}")
 
 def perkalian(n1, n2):
     result = n1 * n2
@@ -38,11 +35,15 @@ def calculator():
         choice = int(input("Masukkan pilihan operasi (1,2,3,4): "))
 
         if choice in [1,2,3,4]:
-            num1 = int(input("Masukkan angka pertama: "))
-            num2 = int(input("Masukkan angka kedua: "))
+            numbers = input("Masukkan angka-angka yg ingin dijumlahkan dan tolong pisahkan dengan koma contoh (10,99,19): ")
+            num_list = [float(num) for num in numbers.split(",")]
+
+            if len(num_list) < 2:
+                print("Harap masukkan paling tidak dua angka!")
+                return
 
             if choice == 1:
-                penjumlahan(num1,num2)
+                penjumlahan(num_list)
             elif choice == 2:
                 pengurangan(num1,num2)
             elif choice == 3:
@@ -62,3 +63,17 @@ def calculator():
         print("Anda memasukkan angka yg salah")
 
 calculator()
+
+
+# result = penjumlahan(num1,num2)
+#                 print(f"Hasil {num1} + {num2} = {result}")
+#                 for i in range(1, 10):
+#                     nextChoice = int(input("Lanjutkan?\n1. Iya\n2. Tidak\n "))
+#                     if nextChoice != 2:
+#                         numN = int(input("Masukan angka selanjutnya: "))
+#                         penjumlahan(result, numN)
+#                         resultN = penjumlahan(result, numN)
+#                         print(f"Hasil {result} + {numN} = {resultN}")
+#                     else:
+#                         print("Selamat tinggal")
+#                         break
