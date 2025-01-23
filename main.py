@@ -1,4 +1,30 @@
 
+def penjumlahan(n1, n2):
+    result = n1 + n2
+    print(f"Hasil {n1} + {n2} = {result}")
+
+    return result
+
+def pengurangan(n1, n2):
+    result = n1 - n2
+    print(f"Hasil {n1} - {n2} = {result}")
+
+    return result
+
+def perkalian(n1, n2):
+    result = n1 * n2
+    print(f"Hasil {n1} x {n2} = {result}")
+
+    return result
+
+def pembagian(n1, n2):
+    if n2 != 0:
+        result = n1 / n2
+        print(f"Hasil {n1} : {n2} = {result}")
+    else:
+        print("Terjadi kesalahan: Pembagian dengan nol tidak diperbolehkan!")
+
+
 def calculator():
     print("=== Calculator Sederhana ===")
     print("Pilih Operasi:")
@@ -16,20 +42,13 @@ def calculator():
             num2 = int(input("Masukkan angka kedua: "))
 
             if choice == 1:
-                result = num1 + num2
-                print(f"Hasil {num1} + {num2} = {result}")
+                penjumlahan(num1,num2)
             elif choice == 2:
-                result = num1 - num2
-                print(f"Hasil {num1} - {num2} = {result}")
+                pengurangan(num1,num2)
             elif choice == 3:
-                result = num1 * num2 
-                print(f"Hasil {num1} x {num2} = {result}")
+                perkalian(num1,num2)
             elif choice == 4:
-                if num2 != 0:
-                    result = num1 / num2
-                    print(f"Hasil {num1} : {num2} = {result}")
-                else:
-                    print("Terjadi kesalahan: Pembagian dengan nol tidak diperbolehkan!")
+                pembagian(num1,num2)
         else:
             print("Pilihan operasi tidak valid!")
             choice = int(input("Apakah anda ingin mencoba lagi?\n1. Coba lagi\n2. Keluar\n "))
