@@ -1,25 +1,35 @@
 
 def penjumlahan(nList):
     result = sum(nList)
-    print(f"Hasil + {" + ".join(map(str, nList))} = {result}")
+    print(f"Hasil {" + ".join(map(str, nList))} = {result}")
 
 
 def pengurangan(nList):
-    result = n1 - n2
-    print(f"Hasil + {" - ".join(map(str, nList))} = {result}")
+    result = nList[0]
+    for num in nList[1:]:
+        result -= num
+    print(f"Hasil {" - ".join(map(str, nList))} = {result}")
 
-def perkalian(n1, n2):
-    result = n1 * n2
-    print(f"Hasil {n1} x {n2} = {result}")
+def perkalian(nList):
+    result = nList[0]
+    for num in nList[1:]:
+        result *= num
+    print(f"Hasil {" x ".join(map(str, nList))} = {result}")
 
-    return result
 
-def pembagian(n1, n2):
-    if n2 != 0:
-        result = n1 / n2
-        print(f"Hasil {n1} : {n2} = {result}")
-    else:
-        print("Terjadi kesalahan: Pembagian dengan nol tidak diperbolehkan!")
+def pembagian(nList):
+    try:  
+        if 0 in nList[1:]:
+            print("Terjadi kesalahan: Pembagian dengan nol tidak diperbolehkan!")
+            return
+
+        result = nList[0]
+        for num in nList[1:]:
+            result /= num
+        print(f"Hasil {" / ".join(map(str, nList))} = {result}")
+
+    except ZeroDivisionError:
+        print("Pembagian dengan nol tidak diperbolehkan!")
 
 
 def calculator():
@@ -45,11 +55,11 @@ def calculator():
             if choice == 1:
                 penjumlahan(num_list)
             elif choice == 2:
-                pengurangan(num1,num2)
+                pengurangan(num_list)
             elif choice == 3:
-                perkalian(num1,num2)
+                perkalian(num_list)
             elif choice == 4:
-                pembagian(num1,num2)
+                pembagian(num_list)
         else:
             print("Pilihan operasi tidak valid!")
             choice = int(input("Apakah anda ingin mencoba lagi?\n1. Coba lagi\n2. Keluar\n "))
@@ -65,15 +75,3 @@ def calculator():
 calculator()
 
 
-# result = penjumlahan(num1,num2)
-#                 print(f"Hasil {num1} + {num2} = {result}")
-#                 for i in range(1, 10):
-#                     nextChoice = int(input("Lanjutkan?\n1. Iya\n2. Tidak\n "))
-#                     if nextChoice != 2:
-#                         numN = int(input("Masukan angka selanjutnya: "))
-#                         penjumlahan(result, numN)
-#                         resultN = penjumlahan(result, numN)
-#                         print(f"Hasil {result} + {numN} = {resultN}")
-#                     else:
-#                         print("Selamat tinggal")
-#                         break
